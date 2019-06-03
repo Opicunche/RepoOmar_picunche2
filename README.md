@@ -5,7 +5,7 @@ debe instalar composer
 2.- para llamar a la pagina creada es localhost:8080/vaio
 
 
-3.- base de datos incluida dentro del repositorio. si en caso no llegara  a funcionar abrir basededatos_noticia en el word y copiar y pegar en mysql.
+3.- base de datos incluida llamada basededatos_noticia.sql dentro del repositorio. si en caso no llegara  a funcionar abrir basededatos_noticia en el word y copiar y pegar en mysql.
 
 
 
