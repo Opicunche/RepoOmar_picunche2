@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Convertidor de dolares a Pesos chilenos</h1>
+	<input type="number" id="dolares" placeholder="ej: $25 USD">
+	<button id="btn_convertir">Convertir a pesos</button>
+	<br>
+	<br>
+	<h4>Resultado:</h4>
+	<span id="resultado"></span>
+
+	<script
+ 	 src="https://code.jquery.com/jquery-3.4.1.js"
+  	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+ 	 crossorigin="anonymous"></script>
+
+ 	 	<script type="text/javascript">
+		$("#btn_convertir").click(function(){
+			$.get("https://mindicador.cl/api",function(data){
+				
+				dolares = $("#dolares").val();
+				console.log(dolares);
+				console.log(data);
+				console.log(data["dolar"]["valor"]);
+
+
+				let resultado = data["dolar"]["valor"] * dolares;
+				$("#resultado").html("$"+ Math.round(resultado)+" pesos chilenos");
+
+			});
+		});
+ 	 </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Convertidor de pesos a dolares y euros</h1>
+	<input type="number" id="pesos" placeholder="ej: $990 pesos">
+	<button id="btn_convertir">Convertir</button>
+	<br>
+	<br>
+	<h4>Resultado:</h4>
+	<span id="res_dolar"></span><br>
+	<span id="res_euro">
+
+	<script
+ 	 src="https://code.jquery.com/jquery-3.4.1.js"
+  	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+ 	 crossorigin="anonymous"></script>
+
+ 	 	<script type="text/javascript">
+		$("#btn_convertir").click(function(){
+			$.get("https://mindicador.cl/api",function(data){
+				
+				pesos = $("#pesos").val();
+				valor_dolar = data["dolar"]["valor"];
+				valor_euro  = data["euro"]["valor"];
+
+				res_dolar = Math.round(pesos/valor_dolar);
+				res_euro = Math.round(pesos/valor_euro);
+
+
+				console.log(data);
+				console.log(data["dolar"]["valor"]);
+
+				$("#res_dolar").html("$"+res_dolar+" USD");
+				$("#res_euro").html("E"+res_euro+" EUR");
+
+			});
+		});
+ 	 </script>
+</body>
+</html>

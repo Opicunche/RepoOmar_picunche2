@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<title>Radio VaioVaio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="css/w3.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="css/css.css">
+	<meta charset="utf-8">
+	<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+	
+	<body>
+		<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-left" style="display:none; overflow: hidden;" id="izquierdo" >
+			<button class="w3-bar-item w3-button w3-large" onclick="closeLeftMenu()" 
+			 id="cerrarLeida">Leídas &times;</button>
+			<div id="leidas" class="list-group" style="overflow-y: scroll; height: 90vh;">
+			{% for noticias in noticia%}
+				<li class="w3-bar-item w3-button"><a>{{ noticias["titulo"] }}</a></li>
+			{% endfor%}
+			</div>
+		</div>
+		<div class="w3-main" id="main">
+			<div class="w3-teal">
+				<table style="width: 100%">
+					<tr>
+						<td style="width: 10%"><button class="w3-button w3-teal w3-xlarge" onclick="openLeftMenu()" id="abrirLeida" style="float: left;">&#9776;</button></td>
+						<td style="width: 80%">
+							
+						</td>
+						<td style="width: 10%"><button class="w3-button w3-teal w3-xlarge" onclick="openRightMenu()" id="abrirxleer" style="float: right;">&#9776;</button></td>
+					</tr>
+				</table>
+			</div>	
+
+
+				<div class="tab">
+	 				 <button class="tablinks" onclick="openCity(event, 'tab1')">Carabinera agredio a joven<span onclick="this.parentElement.style.display='none'"> X</span></button>
+	 				 <button class="tablinks" onclick="openCity(event, 'tab2')">viento en santiago derribo arboles<span onclick="this.parentElement.style.display='none'"> X</span></button>
+	  				 <button class="tablinks" onclick="openCity(event, 'tab3')">condena por 15 años a un hombre<span onclick="this.parentElement.style.display='none'"> X</span></button>
+	  				 <button class="tablinks" onclick="openCity(event, 'tab4')">delincuentes mueren tras choque<span onclick="this.parentElement.style.display='none'"> X</span></button>
+	  				 <br>
+				</div>
+
+
+			
+			</div>
+
+		<div id="tab1" class="tabcontent">
+		  <h3>Carabinera agredio a joven</h3>
+	  	  <p>"Me agarró del pelo y me empezó a agredir con una bomba lacrimógena en el cráneo"</p>
+	  	  <br>
+	  	  <p>relató la estudiante de primer año de Fotografía que fue agredida Javiera Godoy</p>
+	  	   {% for noticias in noticia%}
+				<li class="w3-bar-item w3-button"><a>{{ noticias["titulo"]}}</a></li>
+	       {% endfor%}
+	        {% for noticias in noticia%}
+				<li class="w3-bar-item w3-button"><a>{{ noticias.id}}</a></li>
+	       {% endfor%}
+
+		</div>
+
+		<div id="tab2" class="tabcontent">
+	  		<h3>Viento en santiago derribo arboles</h3>
+	 	    <p>Viento derribo 700 arboles en santiago</p> 
+	 	    <br>
+	 	    <p>El viento supero una cantidad de 70 km por hora.Aún hay 216 mil clientes sin luz debido a las caídas de árboles, postes y efectos en el tendido de electricidad.</p>
+		</div>
+
+		<div id="tab3" class="tabcontent">
+	 		 <h3>condena por 15 años a un hombre</h3>
+	  		<p>hombre de 32 años fue sentenciado 15 años de carcel</p>
+	  		<br>
+	  		<p>Tras ser condenado por un robo con violacion en contra de una mujer de 20 años en hualpen.</p>
+		</div>
+		<div id="tab4" class="tabcontent">
+	 		 <h3>delincuentes mueren tras choque</h3>
+	  		<p>Auto queda partido en dos</p>
+	  		<br>
+	  		<p>La pareja de delincuentes falleció la madrugada del martes, luego de que chocaran a bordo de un auto que habian robado, mientras huían de carabineros.</p>
+		</div>
+
+
+
+			<div id="page-content-wrapper">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<ul class="nav nav-tabs" role="tablist">
+							</ul>
+							<div class="tab-content" style="overflow-y: scroll; height: 80vh;">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="w3-sidebar w3-bar-block w3-card-2 w3-animate-right" style="display:none; bottom: 0; overflow: hidden;" id="derecho">
+			<button class="w3-bar-item w3-button w3-large" onclick="closeRightMenu()" 
+			 id="cerrarxleer">Por Leer &times;</button>
+			 {% for noticias in noticia%}
+				<li class="w3-bar-item w3-button"><a>{{ noticias["titulo"] }}</a></li>
+				{% endfor%}
+			<div id="xleer" class="list-	group" style="overflow-y: scroll; height: 90vh;">
+			</div>
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/Utils.js"></script>
+
+		
+
+
+		
+
+
+			<script>
+			function openCity(evt, cityName) {
+ 				 var i, tabcontent, tablinks;
+ 				 tabcontent = document.getElementsByClassName("tabcontent");
+  				for (i = 0; i < tabcontent.length; i++) {
+    			tabcontent[i].style.display = "none";
+ 			 }
+  			tablinks = document.getElementsByClassName("tablinks");
+ 				 for (i = 0; i < tablinks.length; i++) {
+  				  tablinks[i].className = tablinks[i].className.replace(" active", "");
+			  }
+ 			 document.getElementById(cityName).style.display = "block";
+ 			 evt.currentTarget.className += " active";
+			}
+		   </script>
+
+
+			<script>
+			function openLeftMenu() {
+ 				 document.getElementById("izquierdo").style.display = "block";
+ 				 document.getElementById("izquierdo").style.width = "25%";
+
+			}
+
+			function closeLeftMenu() {
+ 				document.getElementById("izquierdo").style.display = "none";
+			}
+
+			function openRightMenu() {
+ 				 document.getElementById("derecho").style.display = "block";
+ 				 document.getElementById("derecho").style.width = "25%";
+			}
+
+			function closeRightMenu() {
+  				document.getElementById("derecho").style.display = "none";
+			}		
+			</script>
+
+
+	</body>
+</html>
+
